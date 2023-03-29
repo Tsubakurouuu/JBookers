@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.repository.BookMapper">
+<resultMap type="com.example.domain.book.model.Book" id="book">
+	<id column="id" property="id"/>
+	<result column="title" property="title"/>
+	<result column="body" property="body"/>
+</resultMap>
+	<select id="findMany" resultType="Book">
+		select * from book
+	</select>
+	<select id="findOne" resultMap="book">
+		select * from book where id = #{id}
+	</select>
+	<update id="updateOne">
+		update book set title = #{title}, body = #{body} where id = #{id}
+	</update>
+	<delete id="deleteOne">
+		delete from book where id = #{id}
+	</delete>
+</mapper>

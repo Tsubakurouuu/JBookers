@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>JBookers</title>
+	</head>
+	<body>
+		<h1>Books</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Body</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tboby>
+				<tr th:each="book : ${bookIndex}">
+					<td th:text="${book.title}"></td>
+					<td th:text="${book.body}"></td>
+					<td>
+						<a th:href="@{'/book/' + ${book.id}}">Show</a>
+					</td>
+					<td>
+						<a th:href="@{'/book/' + ${book.id} + '/edit'}">Edit</a>
+					</td>
+					<td>
+						<a th:href="@{/book}" name="delete">Destroy</a>
+					</td>
+				</tr>
+			</tboby>
+		</table>
+		<h1>New Book</h1>
+		
+	</body>
+</html>
+	
